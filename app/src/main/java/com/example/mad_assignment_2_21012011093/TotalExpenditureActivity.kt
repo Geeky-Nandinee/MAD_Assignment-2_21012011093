@@ -1,10 +1,11 @@
 package com.example.mad_assignment_2_21012011093
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import org.json.JSONObject
 
 class TotalExpenditureActivity : AppCompatActivity() {
     private lateinit var radioGroupTimeFrame: RadioGroup
@@ -44,6 +45,10 @@ class TotalExpenditureActivity : AppCompatActivity() {
                 }
             }
         }
+
+        // Load and display the JSON expense data
+        val expenseJson = loadExpenseFromSharedPreferences()
+        displayExpenseData(expenseJson)
     }
 
     private fun calculateTotalExpenditureFor(timeFrame: String): Double {
@@ -55,6 +60,31 @@ class TotalExpenditureActivity : AppCompatActivity() {
             "weekly" -> 450.0
             "monthly" -> 1900.0
             else -> 0.0
+        }
+    }
+
+    private fun loadExpenseFromSharedPreferences(): String? {
+        val sharedPreferences: SharedPreferences =
+            getSharedPreferences("ExpenseTracker", Context.MODE_PRIVATE)
+
+        // Load the JSON expense data from SharedPreferences
+        return sharedPreferences.getString("expense_data", null)
+    }
+
+    private fun displayExpenseData(expenseJson: String?) {
+        if (expenseJson != null) {
+            // Parse the JSON and extract data for display
+            val jsonObject = JSONObject(expenseJson)
+            val amount = jsonObject.getString("amount")
+            val date = jsonObject.getString("date")
+            val category = jsonObject.getString("category")
+            val description = jsonObject.getString("description")
+
+            // Display the data in a TextView or other UI elements
+            textViewTotalExpenditure.text = "Amount: $amount\nDate: $date\nCategory: $category\nDescription: $description"
+        } else {
+            // Handle the case where there is no expense data to display
+            textViewTotalExpenditure.text = "No expense data available"
         }
     }
 }
