@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Total Expenditure Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTotalExpenditure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <!-- Card Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Image/Logo (ImageView) -->
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:src="@drawable/expense_logo"
+                android:layout_gravity="center" />
+
+            <!-- Time Frame Selection (RadioButtons or Spinner) -->
+            <RadioGroup
+                android:id="@+id/radioGroupTimeFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonDaily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonWeekly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weekly" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonMonthly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monthly" />
+            </RadioGroup>
+
+            <!-- Total Expenditure Amount (TextView) -->
+            <TextView
+                android:id="@+id/textViewTotalExpenditure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Expenditure: $0.00" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
