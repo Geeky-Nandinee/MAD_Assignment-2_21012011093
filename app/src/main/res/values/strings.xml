@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MAD_Assignment-2_21012011093</string>
+    <string-array name="expense_categories">
+        <item>Food</item>
+        <item>Entertainment</item>
+        <item>Study Material</item>
+        <item>Travel</item>
+        <item>Shopping</item>
+    </string-array>
 </resources>

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient1"
-
     tools:context=".AddExpenseActivity">
 
     <com.google.android.material.card.MaterialCardView
@@ -48,18 +47,16 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Date">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerCategory"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
 
             <Spinner
                 android:id="@+id/spinnerCategory"
@@ -69,7 +66,8 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                android:entries="@array/expense_categories" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -82,14 +80,14 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <Button
                 android:id="@+id/fabAddExpense"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/baseline_add_24"
-                android:contentDescription="Add Expense" />
+                android:text="Add Expense" />
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
